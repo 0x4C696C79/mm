@@ -56,7 +56,7 @@ typedef struct Sample {
     /* 0x0 */ u32 unk_0 : 1;
     /* 0x0 */ u32 codec : 3; // The state of compression or decompression, See `SampleCodec`
     /* 0x0 */ u32 medium : 2; // Medium where sample is currently stored. See `SampleMedium`
-    /* 0x0 */ u32 unk_bit26 : 1;
+    /* 0x0 */ u32 isCached : 1;
     /* 0x0 */ u32 isRelocated : 1; // Has the sample header been relocated (offsets to pointers)
     /* 0x1 */ u32 size : 24; // Size of the sample
     /* 0x4 */ u8* sampleAddr; // Raw sample data. Offset from the start of the sample bank or absolute address to either rom or ram
