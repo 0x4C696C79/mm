@@ -1817,7 +1817,7 @@ void AudioLoad_RelocateSample(TunedSample* tunedSample, SoundFontData* fontData,
 
             sample->isRelocated = true;
 
-            if (sample->unk_bit26 && (sample->medium != MEDIUM_RAM)) {
+            if (sample->isCached && (sample->medium != MEDIUM_RAM)) {
                 gAudioCtx.usedSamples[gAudioCtx.numUsedSamples++] = sample;
             }
         }
@@ -2060,7 +2060,7 @@ s32 AudioLoad_GetSamplesForFont(s32 fontId, Sample** sampleSet) {
 void AudioLoad_AddUsedSample(TunedSample* tunedSample) {
     Sample* sample = tunedSample->sample;
 
-    if ((sample->size != 0) && (sample->unk_bit26) && (sample->medium != MEDIUM_RAM)) {
+    if ((sample->size != 0) && (sample->isCached) && (sample->medium != MEDIUM_RAM)) {
         gAudioCtx.usedSamples[gAudioCtx.numUsedSamples++] = sample;
     }
 }
